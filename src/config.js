@@ -23,6 +23,7 @@ const envPath = CLOptions.mode == "prod" ? "../environment/.env_production" : ".
 
 dotenv.config({ path: envPath }); 
 
+
 const { APP_NAME, PORT, SERVER, MONGO_URI, SECRET, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, GITHUB_CALLBACK_URL } = process.env;
 
 const config = {
