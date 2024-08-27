@@ -48,10 +48,7 @@ const initAuthStrategies = () => {
           
           if (user) return done(null, false);
     
-          const cart = await CartMDBManager.createCartMDB();
-
-          console.log("Entro acá");
-          
+          const cart = await CartMDBManager.createCartMDB();          
           
           const newUser = { ...req.body, password: createHash(password), cart: await cart.ID };
           

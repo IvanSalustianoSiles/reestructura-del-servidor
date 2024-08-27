@@ -103,8 +103,6 @@ router.post("/register", verifyRequiredBody([ "first_name", "last_name", "passwo
 );
 router.post("/pplogin", verifyRequiredBody(["email", "password"]), passport.authenticate("login", { failureRedirect: `/pplogin?error=${encodeURI("Usuario y/o clave no válidos.")}` }), async (req, res) => {
     try {
-      console.log("Entro al endpoint");
-      
       req.session.user = req.user;
       req.session.save((error) => {
         if (error)

@@ -62,11 +62,7 @@ class UserManager {
   };
   paginateUsers = async (...filters) => {
     try {
-    console.log("hola xd");
-    
       const dbUsers = await this.model.paginate(...filters);
-      console.log(dbUsers);
-      
       return dbUsers;
     } catch (error) {
       console.log(`[ERROR: ${error}]: Error al paginar los usuarios desde la base de datos.`);
