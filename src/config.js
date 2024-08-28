@@ -27,19 +27,19 @@ dotenv.config({ path: envPath });
 const { APP_NAME, PORT, SERVER, MONGO_URI, SECRET, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, GITHUB_CALLBACK_URL } = process.env;
 
 const config = {
-  APP_NAME: APP_NAME || CLOptions.appname,
-  PORT: PORT || CLOptions.port,
+  APP_NAME: CLOptions.appname || APP_NAME,
+  PORT: CLOptions.port || PORT,
   DIRNAME: url.fileURLToPath(new URL(".", import.meta.url)),
-  SERVER: SERVER || CLOptions.server,
+  SERVER: CLOptions.server || SERVER,
   get UPLOAD_DIR() {
     return `${this.DIRNAME}/public/img`;
   },
-  MONGO_URI: MONGO_URI || CLOptions.mongouri,
+  MONGO_URI: CLOptions.mongouri || MONGO_URI,
   MONGODB_ID_REGEX: /^[a-fA-F0-9]{24}$/,
-  SECRET: SECRET || CLOptions.secret,
-  GITHUB_CLIENT_ID: GITHUB_CLIENT_ID || CLOptions.ghclientid,
-  GITHUB_CLIENT_SECRET: GITHUB_CLIENT_SECRET || CLOptions.ghclientsecret,
-  GITHUB_CALLBACK_URL: GITHUB_CALLBACK_URL || CLOptions.ghcallbackurl
+  SECRET: CLOptions.secret || SECRET,
+  GITHUB_CLIENT_ID: CLOptions.ghclientid || GITHUB_CLIENT_ID,
+  GITHUB_CLIENT_SECRET: CLOptions.ghclientsecret || GITHUB_CLIENT_SECRET,
+  GITHUB_CALLBACK_URL: CLOptions.ghcallbackurl || GITHUB_CALLBACK_URL
 };
 
 export default config;
